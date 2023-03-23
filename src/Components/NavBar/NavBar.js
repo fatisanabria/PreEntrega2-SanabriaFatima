@@ -1,7 +1,9 @@
 import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
+
     return (
         <header className="container-fluid g-0" style={{ backgroundColor: '#c6e5d2'}}>
             <div>
@@ -15,13 +17,19 @@ function NavBar() {
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <button className="nav-link btn fst-italic" aria-current="page" href="#">Inicio</button>
+                                <NavLink className="nav-link btn fst-italic" aria-current="page" to={"/"}>Inicio</NavLink>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn fst-italic" href="#">Vestimenta</button>
+                                <NavLink className="nav-link btn fst-italic" to={"/category/women's clothing"}>Ropa de mujer</NavLink>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link btn fst-italic" href="#">Calzado</button>
+                                <NavLink className="nav-link btn fst-italic" to={"/category/men's clothing"}>Ropa de hombre</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link btn fst-italic" to={"/category/jewelery"}>Joyeria</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link btn fst-italic" to={"/category/electronics"}>Tecnologia</NavLink>
                             </li>
                         </ul>
                         <span className="navbar-text ms-4">

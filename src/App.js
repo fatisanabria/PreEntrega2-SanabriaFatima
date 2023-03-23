@@ -1,15 +1,22 @@
 import './App.css';
-import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer';
-import NavBar from './Componentes/NavBar/NavBar';
-
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
+import NavBar from './Components/NavBar/NavBar';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Error404 from './Components/Error404';
+import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
     <div>
+      <BrowserRouter>
       <NavBar/>
-      <div>
-        <ItemListContainer greeting={"Bienvenidos a Merlina's"}/>
-      </div>
+      <Routes>
+        <Route path={"/"} exact element={<ItemListContainer/>}/>
+        <Route path={"/category/:id"} exact element={<ItemListContainer/>}/>
+        <Route path={"/producto/:id"} exact element={<ItemDetailContainer />}/>
+        <Route path={"*"} exact element={<Error404/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
