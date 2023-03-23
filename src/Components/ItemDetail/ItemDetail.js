@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import ItemCss from './ItemDetail.module.css'
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState([]);
@@ -20,14 +22,19 @@ function ItemDetailContainer() {
     }, [id]);
 
     return (
-        <Container>
-            <div>
-                <img className="p-5" src={product.image} />
-            </div>
-                <h1>{product.title}</h1>
-                <p>{product.description}</p>
-                <p>{product.price}</p>
-                <p>{product.category}</p>
+        <Container className={`${ItemCss.carta}`} >
+            <h1 className="pt-5">{product.title}</h1>
+            <section className="d-flex pt-5">
+                <div className="">
+                    <img src={product.image} />
+                </div>
+                <div className={`${ItemCss.informacion}`}>
+                    <p>{product.description}</p>
+                    <p>Precio: ${product.price}</p>
+                    <p>Categoria: {product.category}</p>
+                    <Button variant="primary">Añadir a carrito</Button>
+                </div>
+            </section>
         </Container>
     );
 }

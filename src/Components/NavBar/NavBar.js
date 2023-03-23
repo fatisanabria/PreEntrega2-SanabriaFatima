@@ -1,11 +1,12 @@
 import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
+import NavBarCss from "./NavBar.module.css"
 
 function NavBar() {
 
     return (
-        <header className="container-fluid g-0" style={{ backgroundColor: '#c6e5d2'}}>
+        <header className={`container-fluid g-0`}>
             <div>
                 <h1 className="text-center pt-5 pb-2 fw-bold fst-italic">Merlina's</h1>
             </div>
@@ -33,7 +34,7 @@ function NavBar() {
                             </li>
                         </ul>
                         <span className="navbar-text ms-4">
-                            <CartWidget/>
+                            <CartWidget />
                         </span>
                     </div>
                 </div>

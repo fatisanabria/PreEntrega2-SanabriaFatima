@@ -13,9 +13,9 @@ function ItemListContainer({ greeting }) {
   useEffect(() => {
     const promesa = new Promise((resolve) => {
       setTimeout(() => {
-        if(id===undefined){resolve(fetch("https://fakestoreapi.com/products"))}
-        else{
-            resolve (fetch(`https://fakestoreapi.com/products/category/${id}`))
+        if (id === undefined) { resolve(fetch("https://fakestoreapi.com/products")) }
+        else {
+          resolve(fetch(`https://fakestoreapi.com/products/category/${id}`))
         }
         ;
       }, 300);
@@ -27,12 +27,12 @@ function ItemListContainer({ greeting }) {
   }, [id]);
 
   return (
-    <Container style={{ backgroundColor: "#fff6f6", padding: "20px", textAlign: "center" }}>
+    <Container>
       <Row>
-      {product.map((item) => (
-        <Col key={item.id}>
-          <Link to={"/producto/" + item.id} className="text-decoration-none">
-            <Card style={{ width: '18rem' }}>
+        {product.map((item) => (
+          <Col lg="3" key={item.id} className="pt-5">
+            <Link to={"/producto/" + item.id} className="text-decoration-none text-dark">
+              <Card>
                 <Card.Img variant="top" src={item.image} />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
@@ -43,8 +43,8 @@ function ItemListContainer({ greeting }) {
                 </Card.Body>
               </Card>
             </Link>
-        </Col>
-      ))}
+          </Col>
+        ))}
       </Row>
     </Container>
   );

@@ -1,0 +1,19 @@
+img{
+    width: 400px;
+}
+
+.carta{
+    border-radius: 2%;
+    box-shadow: 0 0 5px rgb(109, 114, 87);
+    margin-top: 30px;
+    padding: 0px 30px 30px 30px;
+}
+
+h1{
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.informacion{
+    margin: 50px 50px 0 50px
+}

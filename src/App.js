@@ -1,21 +1,21 @@
 import './App.css';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import NavBar from './Components/NavBar/NavBar';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error404 from './Components/Error404';
-import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
+import ItemDetail from './Components/ItemDetail/ItemDetail';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path={"/"} exact element={<ItemListContainer/>}/>
-        <Route path={"/category/:id"} exact element={<ItemListContainer/>}/>
-        <Route path={"/producto/:id"} exact element={<ItemDetailContainer />}/>
-        <Route path={"*"} exact element={<Error404/>}/>
-      </Routes>
+        <NavBar />
+        <Routes>
+          <Route path={"/"} exact element={<ItemListContainer />} />
+          <Route path={"/category/:id"} exact element={<ItemListContainer />} />
+          <Route path={"/producto/:id"} exact element={<ItemDetail />} />
+          <Route path={"*"} exact element={<Error404 />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
