@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 function CartWidget() {
     const contar = 5;
@@ -8,7 +9,7 @@ function CartWidget() {
         <div className='d-flex align-items-center'>
             <p className='bg-body-tertiary rounded-circle px-2'>{contar}</p>
             <div>
-                <button className='btn fst-italic'><FontAwesomeIcon icon={faCartShopping} /></button>
+                <Link to={`/Checkout`}><FontAwesomeIcon icon={faCartShopping}/></Link>
             </div>
         </div>
     )

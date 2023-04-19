@@ -5,37 +5,41 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { dataBase } from '../firestore';
+import { where, collection, query, getDocs } from 'firebase/firestore';
 
-function ItemListContainer() {
-    const [product, setProduct] = useState([]);
+const ItemListContainer = () => {
+    const [item, setItem] = useState([])
     const { id } = useParams();
+
     useEffect(() => {
-        const promesa = new Promise((resolve) => {
-            setTimeout(() => {
-                if (id === undefined) { resolve(fetch('https://fakestoreapi.com/products')) }
-                else {
-                    resolve(fetch(`https://fakestoreapi.com/products/category/${id}`))
-                }
-                ;
-            }, 300);
-        });
-        promesa.then((resolve) => resolve.json()).then((data) => {
-            setProduct(data);
-            console.log(data);
-        });
+        const queryDb = dataBase
+        const queryCollection = collection(queryDb, 'productos');
+        if (id) {
+            const queryFilter = query(queryCollection, where('categoria', '==', id))
+            getDocs(queryFilter)
+                .then(res => setItem(res.docs.map(p => ({ id: p.id, ...p.data() }))))
+                console.log(item)
+        } else {
+            getDocs(queryCollection)
+                .then(res => setItem(res.docs.map(p => ({ id: p.id, ...p.data() }))))
+                console.log(item)
+        }
     }, [id]);
+
+
     return (
         <Container>
             <Row>
-                {product.map((item) => (
+                {item.map((item) => (
                     <Col lg='3' key={item.id} className='pt-5'>
                         <Link to={'/producto/' + item.id} className='text-decoration-none text-dark'>
                             <Card>
-                                <Card.Img variant='top' src={item.image} />
+                                <Card.Img variant='top' src={item.imagen} />
                                 <Card.Body>
-                                    <Card.Title>{item.title}</Card.Title>
+                                    <Card.Title>{item.nombre}</Card.Title>
                                     <Card.Text>
-                                        Precio: ${item.price}
+                                        Precio: ${item.precio}
                                     </Card.Text>
                                     <Button variant='primary'>Añadir a carrito</Button>
                                 </Card.Body>

@@ -20,16 +20,28 @@ function NavBar() {
                                 <NavLink className='nav-link btn fst-italic' aria-current='page' to={'/'}>Inicio</NavLink>
                             </li>
                             <li className='nav-item'>
-                                <NavLink className='nav-link btn fst-italic' to={`/category/women's clothing`}>Ropa de mujer</NavLink>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Jerseys`}>Jersey</NavLink>
                             </li>
                             <li className='nav-item'>
-                                <NavLink className='nav-link btn fst-italic' to={`/category/men's clothing`}>Ropa de hombre</NavLink>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Camisas`}>Camisas</NavLink>
                             </li>
                             <li className='nav-item'>
-                                <NavLink className='nav-link btn fst-italic' to={`/category/jewelery`}>Joyeria</NavLink>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Calcetines`}>Calcetines</NavLink>
                             </li>
                             <li className='nav-item'>
-                                <NavLink className='nav-link btn fst-italic' to={`/category/electronics`}>Tecnologia</NavLink>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Vestidos`}>Vestidos</NavLink>
+                            </li>
+                            <li className='nav-item'>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Camisetas`}>Camisetas</NavLink>
+                            </li>
+                            <li className='nav-item'>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Pantalones`}>Pantalones</NavLink>
+                            </li>
+                            <li className='nav-item'>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Faldas`}>Faldas</NavLink>
+                            </li>
+                            <li className='nav-item'>
+                                <NavLink className='nav-link btn fst-italic' to={`/category/Chaquetas`}>Chaquetas</NavLink>
                             </li>
                         </ul>
                         <span className='navbar-text ms-4'>
