@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import { Container, Row } from "react-bootstrap";
-import { cartContext } from "../Context/cartContext";
+import { CartContext } from "../Context/CartContext";
+import ProductList from "./ProductList"
 
 
 function Brief (){
-    const {productList} = useContext(cartContext)
+    const {productList} = useContext(CartContext)
     console.log(productList)
     return (
         <Container>
+            {productList.map(prod=>
             <Row>
-            {/* aca van los items */}
+                <ProductList item={prod} /> 
             </Row>
+            )
+            }
             <p>gracias por tu compra♥</p>
         </Container>
     )

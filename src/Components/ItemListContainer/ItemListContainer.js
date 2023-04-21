@@ -41,7 +41,9 @@ const ItemListContainer = () => {
                                     <Card.Text>
                                         Precio: ${item.precio}
                                     </Card.Text>
-                                    <Button variant='primary'>Añadir a carrito</Button>
+                                    <Card.Text>
+                                        {item.descripcion}
+                                    </Card.Text>
                                 </Card.Body>
                             </Card>
                         </Link>

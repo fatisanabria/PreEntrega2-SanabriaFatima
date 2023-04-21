@@ -5,21 +5,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Error404 from './Components/Error404';
 import ItemDetail from './Components/ItemDetail/ItemDetail';
 import Brief from './Components/Checkout/Checkout'
+import { CartProvider } from './Components/Context/CartContext';
 
 function App() {
     return (
-        <div>
+        <CartProvider>
             <BrowserRouter>
-                <NavBar />
+                <NavBar/>
                 <Routes>
-                    <Route path={'/'} exact element={<ItemListContainer />} />
-                    <Route path={'/category/:id'} exact element={<ItemListContainer />} />
-                    <Route path={'/producto/:id'} exact element={<ItemDetail />} />
-                    <Route path={'/checkout'} exact element={<Brief />} />
-                    <Route path={'*'} exact element={<Error404 />} />
+                    <Route path={'/'} exact element={<ItemListContainer/>}/>
+                    <Route path={'/category/:id'} exact element={<ItemListContainer/>}/>
+                    <Route path={'/producto/:id'} exact element={<ItemDetail/>}/>
+                    <Route path={'/checkout'} exact element={<Brief/>}/>
+                    <Route path={'*'} exact element={<Error404/>}/>
                 </Routes>
             </BrowserRouter>
-        </div>
+        </CartProvider>
     );
 }
 export default App;

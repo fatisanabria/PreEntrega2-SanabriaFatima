@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import ItemCss from './ItemDetail.module.css'
 import { dataBase } from '../firestore';
 import { doc, getDoc } from 'firebase/firestore';
-import { cartContext } from '../Context/cartContext';
+import { CartContext } from '../Context/CartContext';
 
 function ItemDetail() {
     const [product, setProduct] = useState([]);
@@ -19,7 +19,7 @@ function ItemDetail() {
             .then(res => setProduct({ id: res.id, ...res.data() }))
     }, [id])
 
-    const { addToList, productList } = useContext(cartContext);
+    const { addToList, productList } = useContext(CartContext);
 
     useEffect(() => {
         console.log("itemList has changed:", productList);
